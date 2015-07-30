@@ -157,12 +157,14 @@ manga.get('/read/:name/:volume/:chapter/:id', cors(), function(req, res) {
 
         var $ = cheerio.load(body);
         var json = {
+            id: undefined,
             name: undefined,
             title: undefined,
             image: undefined
         };
 
         $('#series').filter(function() {
+            json.id = $('h1').text().split(' ')[$('h1').text().split(' ').length-1];
             json.name = $('h1').text();
             json.title = $('strong a').text();
             json.image = $('#viewer img').attr('src');
