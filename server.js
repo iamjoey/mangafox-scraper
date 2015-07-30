@@ -151,7 +151,7 @@ manga.get('/show/:name', cors(), function(req, res) {
         res.send(json);
     });
 });
-manga.get('/read/:name/:volume/:chapter/:id', cors(), function(req, res) {
+manga.get('/read/:name/:volume?/:chapter/:id', cors(), function(req, res) {
     var url = 'http://mangafox.me/manga/' + req.params.name + '/v' + req.params.volume + '/c' + req.params.chapter + '/' + req.params.id + '.html';
     request({ url: url, gzip: true }, function(err, response, body) {
 
