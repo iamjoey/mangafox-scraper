@@ -134,13 +134,15 @@ manga.get('/show/:name', cors(), function(req, res) {
                 for (var j = 0, ll = celm.children().length; j < ll; ++j) {
                     var chapter = $(celm.children()[j]);
 
-
                     var chapter_name = chapter.first().text().split('\r\n')[4].trim();
                     var chapter_id = chapter_name.split(' ')[chapter_name.split(' ').length-1];
+                    var chapter_link = chapter.find('a.tips').attr('href');
+
 
                     vlist.chapters.push({
                         id: chapter_id,
-                        name: chapter_name
+                        name: chapter_name,
+                        link: chapter_link
                     });
                 }
 
