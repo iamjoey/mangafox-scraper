@@ -1,4 +1,4 @@
-# MangaFox api
+# MangaFox Scraper
 Returns data from MangaFox in json
 
 ### Prerequisites
